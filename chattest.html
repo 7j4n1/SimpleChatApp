@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .chat-container {
+            display: flex;
+            width: 400px;
+            border: 1px solid #645f5f;
+            padding: 5px 15px;
+            max-height: 300px;
+            /* overflow-y: scroll; */
+            margin: 10px auto;
+            flex-direction: column;
+        }
+        .user-id {
+            overflow-y: scroll;
+            width: 100%;
+        }
+        .chat-container .chat-msg {
+            border: 1px solid #bbaaff;
+            color: #ffffff !important;
+            background: rgba(29, 110, 29, 0.788);
+            padding: 10px 20px;
+            word-wrap: break-word;
+            max-width: 100%;
+            margin: 5px auto;
+        }
+        .chat-container .left {
+            border-radius: 0px 25px;
+            float: left;
+        }
+        .chat-container .right {
+            border-radius: 25px 0px;
+            float: right;
+            
+        }
+    </style>
+</head>
+<body>
+    <?php
+        
+
+        print_r($_FILES);
+    ?>
+    <form method="post" action="" enctype="multipart/form-data">
+    <input type="file" name="upload">
+    <input type="submit" value="SUpload">
+    </form>
+    <div class="chat-container">
+        <div class="user-id">
+            <ul type="none">
+                <li class="chat-msg right">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg left">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg right">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg left">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg right">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg left">
+                    My Own Chat goes here
+                </li>
+                <li class="chat-msg left">
+                    My Own Chat goes here
+                </li>
+            </ul>
+        </div>
+        <div class="chat-box">
+            <form method="post" action="" enctype="multipart/form-data">
+                <input type="text" name="msg-content" id="msg-content" multiple="multiple">
+                <button id="chatSend">Send</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","",true);
+    xhr.setRequestHeader("Content-Type","application/json");
+    xhr.onload = ()=>{
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                data = xhr.responseText;
+                console.log(data);
+            }
+        }
+    }
+</script>
+</body>
+</html>
